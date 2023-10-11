@@ -1,5 +1,5 @@
 import express from "express"
-import ProductModel from "./db/productModel.js"
+import ProductModel from "./DB/productModel.js"
 const ProductRouter = express.Router()
 
 ProductRouter.get("/",async(req, res) =>{

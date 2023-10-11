@@ -1,0 +1,19 @@
+
+.user form input{
+    width: 200px;
+    height: 20px;
+    background-color: rgb(207, 132, 132);
+    margin-left: 400px;
+   
+}
+.user button{
+    width: 150px;
+    height: 30px;
+    margin-left: 20px;
+    background-color: blanchedalmond;
+    margin-left: 425px;
+   
+}
+.user form h1{
+    margin-left: 440px;
+}

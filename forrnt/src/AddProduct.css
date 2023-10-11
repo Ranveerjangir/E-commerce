@@ -1,0 +1,24 @@
+.addproduct{
+    border: 1px solid;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(134, 181, 165);
+    gap: 20px;
+    width: 350px;
+    height: 420px;
+    margin: auto;
+    padding: 20px;
+    border-radius: 10px;
+}
+.addproduct form{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+}
+.addproduct form input{
+    padding: 10px;
+}
+.addproduct form button{
+    padding: 8px 20px;
+}

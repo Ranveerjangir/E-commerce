@@ -38,25 +38,5 @@
 }
 
 .read-the-docs {
-  color: #888;
-}
-
-.wrapper {
-background-color: #888;
-box-shadow: 20px 20px 20px rgb(48, 15, 26);
-padding:0px 30px;
-}
-.wrapper form input{
-  background-color: white;
-  color: black;
-  display: flex;
-  margin: 20px;
-  padding: 10px;
-}
-.wrapper form button{
-background-color: rgb(189, 149, 85);
-}
-h1{
- color:rgb(37, 37, 184);
-
+  color: #d3a3a3;
 }

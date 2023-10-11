@@ -1,11 +1,12 @@
 import React from 'react'
+import './Header.css'
 import { Link } from 'react-router-dom'
 
 const Header = () => {
   const adminAuth = localStorage.getItem("admin")
   const userAuth = localStorage.getItem("user")
   return (
-    <header>
+    <div className='header'>
       <Link to="/">Home</Link>
       {
         adminAuth ?
@@ -27,17 +28,18 @@ const Header = () => {
       }
 
       {
-        // {(JSON.parse(adminAuth).name) || (JSON.parse(userAuth).name)}
+        
         userAuth || adminAuth ?
-          <Link to="/" onClick={() => { localStorage.clear() }}>Logout <span id='loggername'>&#40; {adminAuth ? JSON.parse(adminAuth).name : ""}{userAuth ? JSON.parse(userAuth).name : ""} &#41;</span> </Link>
+          <Link to="/" onClick={() => { localStorage.clear() }}>Logout <span id='loggername'>&#41; {adminAuth ? JSON.parse(adminAuth).name : ""}{userAuth ? JSON.parse(userAuth).name : ""} &#41;</span> </Link>
           :
           <>
             <Link to="/userLogin">User Login</Link>
             <Link to="/adminlogin" >Admin Login</Link>
+            
           </>
       }
 
-    </header>
+</div>
   )
 }
 

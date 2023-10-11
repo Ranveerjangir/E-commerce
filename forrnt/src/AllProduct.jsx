@@ -1,29 +1,71 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
+import axios from 'axios'
+import './AddProduct.css'
 
-function AllProduct() {
-const [AllProduct, setAllProduct]=useState()
+import { useNavigate } from 'react-router-dom'
 
-    useEffect(()=>{
-        getProduct();
+function AllProducts() {
+    const [allproducts, setallproducts] = useState([])
+    const navigate = useNavigate()
 
-    },[])
 
-    const getProduct=async()=>{
-        let rep=
-    }
-  return (
-   <div className='product'>
-    <h2>All Product</h2>
-    <div className='products-1'>
-        {
-       AllProduct.map((product)=>{
+    useEffect(() => {
+        getProducts();
+      }, [])
+    
+      const getProducts = async () => {
+        let response = await axios.get("http://localhost:6000/product/add")
         
-       })
+        setallproducts(response.data);
+      }
+    
+      const HandleEdit = (id) => {
+        navigate(`/edit/${id}`)
+      }
+      const HandleDelete = async (id) => {
+        let result = await axios.delete(`http://localhost:6000/product//${id}`)
+        if (result.data.acknowledged) {
+          alert(`Product with ID: ${id} has been deleted`)
+          navigate("/allProducts")
         }
-    </div>
-   
+      }
+
+
+
+  return (
+    <div className='AllProducts'>
+        <h1>All Products</h1>
+        <div className='productcont'>
+            {
+                AllProducts.map((product) => {
+                    return(
+                        <div className='product' key={product.id}>
+                            <div className='items'>
+                                <h2>{product.name}</h2>
+                            </div>
+                            <div className="items">
+                  <h3 className='label'>Price:</h3>
+                  <h4>{product.price}</h4>
+                </div>
+                <div className="items">
+                  <h3 className='label'>Category:</h3>
+                  <h4>{product.category}</h4>
+                </div>
+                <div className="items">
+                  <h3 className='label'>Company:</h3>
+                  <h4>{product.company}</h4>
+                </div>
+                <div className="actions">
+                  <button className="edit btns" onClick={() => HandleEdit(product._id)}>Edit</button>
+                  <button className="delete btns" onClick={() => HandleDelete(product._id)}>Delete</button>
+                </div>
+              </div>
+            )
+          })
+        }
+      </div>
     </div>
   )
 }
 
-export default AllProduct
+export default AllProducts

@@ -1,44 +1,45 @@
-import React, { useState } from "react";
-import axios from "axios";
-import { json } from "react-router-dom";
-
+import axios from 'axios'
+import React, { useState } from 'react'
+import { Navigate, json } from 'react-router-dom'
+import './UserLogin.css'
 
 function UserLogin() {
-    const [user,setUser]=useState()
 
-    const [passward,setPassward]=useState()
+    
+        const[username, setUsername] = useState("")
+        const [Password, setPassword] = useState("")
 
-    const loginHandle=async()=>{
-        let result=await axios.post("http://localhost:4000/user/login",{
-            username,passward
-        })
-        result=result.data
+        const loginHandle = async () => {
+            let result = await axios.post ("http://localhost:4000/user/login",{
+                username: username,
+                Password: Password
+            })
+            result =result.data
 
-        if (result.name){
-            localStorage.setItem(useData,json.stringify(result))
-            navigator("/")
-                
+            if(result.name){
+                localStorage.setItem(userData,json.stringify(result))
+                Navigate ("/")
+            }
+            else{
+                alert("please enter correct details")
+            }
+
         }
-        else{
-            alert("Enter correct deaital")
-        }
-    }
+    
   return (
-    <div>
+    <div className='user'>
+        {/* <h1>Login</h1> */}
         <form action="">
-            <input type="text"placeholder="UserName"  value={user} onChange={(e) => setUser(e.target.value)}/>
-            <input type="text"placeholder="passward"value={passward} onChange={(e) =>setPassward(e.target.value)} />
-          <div>
-            <button onClick={(e)=>{
-                e.preventDefault()
+            <input type="text" placeholder='username' value={username} onChange={(e) => setUsername (e.target.value)}/>
+            <br />
+            <input type="text" placeholder='password' value={Password} onChange={(e) => setPassword(e.target.value)}/>
+            <div>
+                <button onClick={(e)=>{e.preventDefault()
                 loginHandle()
-
             }}
-            type="Submit"></button>
-          
-          </div>
+                type='submit'>Login</button>
+            </div>
         </form>
-
     </div>
   )
 }
