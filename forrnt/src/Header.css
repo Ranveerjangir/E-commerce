@@ -1,7 +1,8 @@
-.header {
-    text-decoration: none;
+header {
+    /* text-decoration: none; */
     background-color: rgb(221, 179, 200);
     padding: 20px;
+
 }
 a {
     text-decoration: none;

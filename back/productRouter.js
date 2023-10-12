@@ -11,9 +11,8 @@ ProductRouter.get("/",async(req, res) =>{
 
 ProductRouter.post("/add", async(req, res) => {
     const productToRegister = new ProductModel(req.body)
-       res.json(productToRegister)
+    console.log(productToRegister);
     let result = await productToRegister.save()
-    console.log(result);
     res.json(result)
 })
 

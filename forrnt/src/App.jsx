@@ -1,36 +1,29 @@
-import { useState } from 'react'
-import axios from 'axios'
+import React from 'react'
 import AddProduct from './AddProduct'
 import Header from './Header'
-import AllProduct from './AllProduct'
+import Home from './home'
 import { BrowserRouter,Route,Routes } from 'react-router-dom'
-import UserLogin from './UserLogin'
-import Home from './Home'
+import Userlogin from './Userlogin'
+import AllProduct from './AllProduct'
+import AdminLogin from './AdminLogin'
+import SignUp from './SignUp'
 
 function App() {
-
   return (
     <>
-    <BrowserRouter>
-    <Header/>
+   <BrowserRouter>
+   <Header/>
     <Routes>
+    <Route path='/AddProduct' element={<AddProduct/>}></Route>
+    <Route path='/userLogin' element={<Userlogin/>}></Route>
+    <Route path='/allProducts' element={<AllProduct/>}></Route>
+    <Route path='/AdminLogin' element={<AdminLogin/>}></Route>
+    <Route path='/SignUp' element={<SignUp/>}></Route>
 
-    <Route path='/AddProduct'element={<AddProduct/>}></Route>
-    <Route path='/UserLogin'element={<UserLogin/>}></Route>
-    <Route path='/AllProduct'element={<AllProduct/>}></Route>
-    <Route path='/adminLogin'element={<adminLogin />}></Route>
-    <Route path='/Home'element={<Home/>}></Route>
-
-
-   
-
-    </Routes>
-   
-  <AddProduct/>
-  </BrowserRouter>
-  
+    <Route path='/'element={<Home/>}/>
+   </Routes>
+   </BrowserRouter>
     </>
-  )
-}
+  )}
 
 export default App

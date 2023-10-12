@@ -1,47 +1,47 @@
 import axios from 'axios'
 import React, { useState } from 'react'
-import { Navigate, json } from 'react-router-dom'
-import './UserLogin.css'
+import { json } from 'react-router-dom'
+import UserLogin from './UserLogin.css'
+function Userlogin() {
 
-function UserLogin() {
+    const[user,setUser]=useState("")
+    const[password,setPassword]=useState("")
+     
 
-    
-        const[username, setUsername] = useState("")
-        const [Password, setPassword] = useState("")
+    const loginHandle=async()=>{
+        let result = await axios.post("http://localhost:5000",{
+            user,password
+        })
+        result=result.data
 
-        const loginHandle = async () => {
-            let result = await axios.post ("http://localhost:4000/user/login",{
-                username: username,
-                Password: Password
-            })
-            result =result.data
-
-            if(result.name){
-                localStorage.setItem(userData,json.stringify(result))
-                Navigate ("/")
-            }
-            else{
-                alert("please enter correct details")
-            }
-
+        if(result.name){
+            localStorage.setItem(useData,json.stringify(result))
+            navigator("/")
         }
-    
+        else{
+            alert("please enter correct Detils")
+        }
+    }
   return (
     <div className='user'>
-        {/* <h1>Login</h1> */}
-        <form action="">
-            <input type="text" placeholder='username' value={username} onChange={(e) => setUsername (e.target.value)}/>
-            <br />
-            <input type="text" placeholder='password' value={Password} onChange={(e) => setPassword(e.target.value)}/>
-            <div>
-                <button onClick={(e)=>{e.preventDefault()
-                loginHandle()
-            }}
-                type='submit'>Login</button>
-            </div>
+        <form className='' >
+            <input type="text"  placeholder='Username'  value={user} onChange={(e)=>setUser(e.target.value)}/>
+            <br/>
+
+            <input type="text" placeholder='Password' value={password} onChange={(e)=>setPassword(e.target.value)}/>
+             <div>
+            
+                <button onClick={(e)=>{
+                    e.preventDefault()
+                    loginHandle()
+                }}
+                 type='submit'>SUBMIT</button>
+
+             </div>
+            
         </form>
     </div>
   )
 }
 
-export default UserLogin
+export default Userlogin
