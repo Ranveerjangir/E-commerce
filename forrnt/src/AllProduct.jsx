@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
-import Allproducts from './AllProduct.css'
+import'./AllProduct.css'
 function AllProduct() {
   const [allproducts, setAllproduct] = useState([])
   const navigate = useNavigate()
@@ -31,12 +31,23 @@ function AllProduct() {
   return (
     <div className='Allproduct'>
       <h1>All Product</h1>
+      < ul className='categray'>
+       <li><a href="">Grocery</a>
+</li>
+       <li><a href="">Electonics</a></li>
+       <li><a href="">Men's Clothing</a></li>
+       <li><a href="">Women's Clothing</a></li>
+       <li><a href="">Bodybuilding</a></li>
+      </ul>
       <div className='product-cont'>
         {
           allproducts.map((products) => {
             return (
               <div className='product' key={products._id}>
 
+              {/* < div className="img">
+                 <img src="C:\Users\Admin\Desktop\backend\forrnt\src\iphone-15-pro-finish-select-202309-6-7inch-bluetitanium.jpg" alt="" />
+                </div> */}
                 <div className="items">
                   <h2 className='label'>Product:</h2>
                   <h4>{products.name}</h4>

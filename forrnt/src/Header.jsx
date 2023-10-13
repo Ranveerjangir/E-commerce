@@ -4,12 +4,17 @@ import './Header.css'
 
 
 function Header() {
+
     const adminAuth =localStorage.getItem("admin")
     const userAuth=localStorage.getItem("user")
 
 
   return (
     <header>
+
+      <div className='logo'>
+        <img src="https://ridabakit.com/wp-content/uploads/2020/08/professional-logo-design-along-with-jpeg-and-png-files-770x400.png" alt="" />
+      </div>
       <Link to ='/'>Home</Link>
       {
         adminAuth ?
@@ -34,8 +39,8 @@ function Header() {
                     :
                     <>
                     
-                        <Link to="/userLogin">User Login</Link>
-                        <Link to="/adminlogin" >Admin signup</Link>
+                        {/* <Link to="/userLogin">User Login</Link> */}
+                        <Link to="/adminlogin" >Admin</Link>
                         <Link to="/AddProduct" >Add Product</Link>
                         <Link to ="/allProducts">All product</Link>
                     </>

@@ -1,8 +1,7 @@
 header {
-    /* text-decoration: none; */
-    background-color: rgb(221, 179, 200);
+    background-color:rgb(104, 127, 170);
     padding: 20px;
-
+position: relative;
 }
 a {
     text-decoration: none;
@@ -11,4 +10,12 @@ a {
     font-size: 20px;
     color: rgb(7, 1, 1);
     font-weight: bold;
+}
+.logo img{
+    position: absolute;
+    
+    right: 1070px;
+    width: -30px;
+    height: 43px;
+    margin: -11px;
 }

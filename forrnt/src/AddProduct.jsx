@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import './App.css'
 import axios from 'axios'
-
+// import multer from 'multer'
 
 const AddProduct =()=> {
   const [name, setName]=useState("")
@@ -14,6 +14,8 @@ const AddProduct =()=> {
 
   const RegisterProduct=async()=>{
     let result= await axios.post("http://localhost:8080/product/add",{name,price,category,company})
+
+    
     result= result.data
     console.log(result);
     if(result.name){
@@ -21,6 +23,7 @@ const AddProduct =()=> {
 
     }
   }
+
   return (
     <>
      <div className='addproduct'>
@@ -37,7 +40,7 @@ const AddProduct =()=> {
       <input type="file" placeholder='photo' onChange={(e) => setPhoto(e.target.files)} />
 <br />
       <button
-          onClick={(e) => {
+          onClick={(e) => {                                                                    
               e.preventDefault()
               RegisterProduct()
           }}>Add Product</button>

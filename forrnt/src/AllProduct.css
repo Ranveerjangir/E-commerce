@@ -2,23 +2,27 @@
     margin: 30px auto;
     max-width: 100%;
    
-   
+    /* object-fit: cover; */
 }
+
 .product-cont{
     display: flex;
     margin-top: 50px;
     flex-wrap: wrap;
     justify-content: center;
-    background-color: coral;
+    background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVGHL9r9OucwArH8yO3rEDPryG4V3tSCBw-w&usqp=CAU);
+    
 }
 .product {
     border: 1px solid;
     padding: 30px;
-    width: 400px;
+    width: 300px;
+    height: 300px;
     display: flex;
     flex-direction: column;
     align-items: center;
     background-color: rgb(224, 196, 196);
+    
 }
 
 .product .items ,.product .actions{

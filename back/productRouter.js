@@ -1,20 +1,19 @@
 import express from "express"
-import ProductModel from "./DB/productModel.js"
+import ProductModle from "./DB/ProductModel.js"
 const ProductRouter = express.Router()
 
-ProductRouter.get("/",async(req, res) =>{
-    const existingProducts = await ProductModel.find()
-    console.log(existingProducts);
-    res.json(existingProducts)
-
+ProductRouter.get("/" ,async(req,res)=>{
+    const existinProducts= await ProductModle.find()
+    console.log(existinProducts);
+    res.json(existinProducts)
 })
 
-ProductRouter.post("/add", async(req, res) => {
-    const productToRegister = new ProductModel(req.body)
-    console.log(productToRegister);
-    let result = await productToRegister.save()
+
+
+  ProductRouter.post("/add",async(req,res)=>{
+    const productToRegister = new ProductModle(req.body)
+    let result= await productToRegister.save()
     res.json(result)
-})
+  })
 
-
-export default ProductRouter;
+  export default ProductRouter

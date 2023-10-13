@@ -1,9 +1,11 @@
 import React from 'react'
-
+import './Home.css'
 function Home() {
   return (
   <>
-  <h1>MY NAME IS RANVEER JANGIR</h1>
+<div className='name'>
+  <h1>DEVELOPER</h1>
+  </div>
   </>
  
   )

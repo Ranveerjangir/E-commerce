@@ -33,7 +33,7 @@ const AdminLogin = () => {
 
   return (
     <div className='Login'>
-      <h1>Admin signup</h1>
+      <h1>Admin</h1>
       <form action="">
         <input type="text" placeholder='Username' value={AdminUsername} onChange={(e) => setAdminUsername(e.target.value)} />
         <input type="password" placeholder='Password' value={AdminPassword} onChange={(e) => setAdminPassword(e.target.value)} />

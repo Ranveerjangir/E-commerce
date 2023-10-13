@@ -7,6 +7,10 @@ const ProductSchema = new mongoose.Schema({
     company:String
 }) 
 
+// /......................................................./
+
+
+
 
 const ProductModel = mongoose.model("products",ProductSchema)
 export default ProductModel;
